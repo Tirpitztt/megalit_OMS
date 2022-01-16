@@ -47,6 +47,10 @@ const MainInfo = (props)=>{
                 <p className={c.value_right+' '+c.green}>{order.calculation.total_cost}</p>
             </div>
             <div className={c.wrapper}>
+                <p className={c.label_left}>Скидка:</p>
+                <p className={c.value_right+' '+c.green}>{order.calculation.discount}</p>
+            </div>
+            <div className={c.wrapper}>
                 <p className={c.label_left}>Остаток:</p>
                 <p className={c.value_right+' '+c.red}>{order.calculation.balance}
                     <span className={c.paybut} onClick={showPayments}>Показать платежи</span>

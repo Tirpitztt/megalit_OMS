@@ -66,6 +66,13 @@ const ProtocolTable = (props) => {
         }
 
     }
+    let discountRow = <tr></tr>;
+    if(props.state.calculation.discount){
+        discountRow = <tr><td></td><td></td><td></td>
+            <td></td><td></td><td>Скидка</td>
+            <td className={c.cost_bold}>{((props.state.calculation.discount)*props.rate).toFixed(2)}</td></tr>
+        rows.push(discountRow);
+    }
     return (
         <table className={c.protocol_table}>
             <thead>

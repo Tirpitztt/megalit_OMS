@@ -10,7 +10,6 @@ const FinalForm = (props) => {
     let [pay,setPay] = useState(0);
     let [isCash,setCash] = useState(false);
     let [discount,setDiscount] = useState(0);
-    console.log('context:',material);
     const changeMaker = (e)=>{
         props.setMaker(e.target.value);
     }
@@ -42,7 +41,6 @@ const FinalForm = (props) => {
             }
         }
         props.setPayment(data);
-        console.log(data.payment)
 
     }
     const changeBel = (pay)=>{

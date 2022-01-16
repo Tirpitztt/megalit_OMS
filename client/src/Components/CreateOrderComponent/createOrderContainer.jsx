@@ -29,8 +29,6 @@ import {
     setTextGravi
 } from "../../Redux/Redusers/neworder-reduser";
 import {setDateTermin} from "../../Utils/dateTermin";
-import {useContext} from "react";
-import {AuthContext} from "../../Context/auth.context";
 
 class CreateOrderContainer extends React.Component{
     componentDidMount() {

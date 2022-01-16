@@ -1,0 +1,22 @@
+.printbut_box{
+    height: 2rem;
+    width: 50%;
+}
+.printbut_box>button{
+    width: 70px;
+    height: 1.8rem;
+    border: 2px solid darkgreen;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.printbut_box>button:hover{
+    background-color: #32CD32;
+}
+.printbut_box>button:active{
+    background-color: #32CD32;
+}
+.select_rate{
+    width: 70px;
+    height: 1.8rem;
+    margin-left: 30px;
+}

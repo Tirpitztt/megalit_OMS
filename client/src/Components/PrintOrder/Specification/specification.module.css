@@ -1,0 +1,80 @@
+.wrapper{
+    width: 1170px;
+    height: 1620px;
+    border:1px solid gray;
+}
+.head{
+    border:1px solid gray;
+    padding: 5px;
+    text-align: center;
+}
+.head p{
+    margin: 0;
+    font-family: inglobal;
+}
+.content_wrap{
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+}
+.left_box{
+    width: 50%;
+    border-right: 1px solid gray;
+}
+.picture_box{
+    height: 630px;
+    border-bottom: 1px solid gray;
+}
+.information{
+    height: 410px;
+    border-bottom: 1px solid gray;
+    padding: 5px;
+}
+.text_box{
+    height: 470px;
+    border-bottom: 1px solid gray;
+}
+.text_box pre{
+    text-align: center;
+    font-family: inglobal;
+    font-size: 1.5rem;
+    line-height: 1.7;
+}
+.title{
+    text-align: center;
+    border-bottom: 1px solid gray;
+}
+.footer{
+    display: flex;
+    flex-flow: row nowrap;
+}
+.sign{
+    height: 30px;
+    width: 50%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+.sign>div{
+    width: 30%;
+    border-bottom: 1px solid gray;
+}
+.right_box{
+    width: 50%;
+}
+.details_box{
+    min-height: 4rem;
+    border-bottom: 1px solid gray;
+    padding: 5px;
+}
+.compl_table{
+    width: 100%;
+}
+.montaz_info_sec{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: start;
+}
+.montaz_info_sec>p{
+   width: 45%;
+}

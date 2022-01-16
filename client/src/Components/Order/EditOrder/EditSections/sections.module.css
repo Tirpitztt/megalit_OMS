@@ -1,0 +1,64 @@
+.active{
+    width:100%;
+    display:block;
+}
+
+.section_wrapper{
+    width:100%;
+    display: none;
+}
+.crux_wrapper{
+    width:100%;
+}
+.content_box{
+    width: 100%;
+    position: relative;
+    background-color: #C0C0C0;
+    border-bottom: 1px solid gray;
+    padding: 5px;
+}
+.group_fields{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+.field_box{
+    width: 40%;
+    margin:5px;
+}
+input{
+    display: block;
+    width:90%;
+    height: 2rem;
+}
+label{
+    color: gray;
+    display: block;
+}
+.button_wrap{
+    position: absolute;
+    right: 1rem;
+}
+.button{
+    width: 90px;
+    border-radius: 5px;
+    height: 2rem;
+    background-color: lightgray;
+    display: inline-block;
+    margin-left: 5rem;
+    margin-top: 1rem;
+    text-align: center;
+    cursor: pointer;
+}
+.button>p{
+    margin-top:0;
+}
+.head_section{
+    display: flex;
+    flex-flow: row nowrap;
+}
+.head_section>div{
+    width: 30%;
+    margin-left: 3rem;
+}
+

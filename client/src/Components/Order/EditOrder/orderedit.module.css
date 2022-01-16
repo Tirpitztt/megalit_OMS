@@ -1,0 +1,41 @@
+.page_wrap{
+    display: grid;
+    grid-template-areas: 'title title' 'admsec cruxsec';
+    grid-template-rows: 2rem 1fr;
+    grid-template-columns: 6fr 6fr;
+}
+.title_page{
+    grid-area: title;
+    margin: 5px;
+    border-bottom: 1px solid gray;
+    border-top: 2px solid gray;
+    text-align: center;
+    font-size: 1.1rem;
+    height: 2rem;
+}
+.title_page>p{
+    margin: 0;
+}
+.left_section{
+    grid-area: admsec;
+    margin: 5px;
+}
+.right_section{
+    grid-area: cruxsec;
+    margin: 5px;
+}
+.customer_sec_but{
+    position: relative;
+    cursor: pointer;
+    border-top: 2px solid gray;
+    border-bottom: 1px solid gray;
+}
+.customer_sec_but:after{
+    content:'+';
+    position: absolute;
+    right: 5px;
+
+}
+.customer_section{
+
+}

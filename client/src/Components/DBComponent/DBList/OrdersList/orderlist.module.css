@@ -1,0 +1,11 @@
+.select{
+    border:none;
+    border-bottom: 1px solid gray;
+    width: 100%;
+}
+.out{
+    background-color: #FF4500;
+}
+.work{
+    background-color: #32CD32;
+}

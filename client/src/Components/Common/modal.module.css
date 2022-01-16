@@ -1,0 +1,122 @@
+.modalwr{
+    display:none;
+}
+.active{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0,0,0,0.4);
+    z-index: 99999;
+
+}
+.content{
+    width: 300px;
+    background-color: beige;
+    border-radius: 15px;
+    position: relative;
+    padding: 1rem;
+}
+.content table{
+    width: 100%;
+}
+.content table>tbody>tr>td{
+    text-align: center;
+}
+.content_det{
+    width:400px;
+    background-color: beige;
+    border-radius: 15px;
+    position: relative;
+    padding: 1rem;
+}
+.content_det>input{
+    margin: .5rem auto;
+    border:none;
+    border-bottom: 1px solid gray;
+}
+.form_wrap{
+    width:100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+}
+.detail_box{
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+}
+.detail_box>select{
+    margin: .3rem auto;
+    height: 2rem;
+    border:none;
+    border-bottom: 1px solid gray;
+    display: inline-block;
+}
+.detail_box>select:nth-of-type(3){
+    width: 50px;
+}
+.gabarit_box{
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: .5rem;
+}
+.gabarit_box>input{
+    width: 70px;
+    height:2rem;
+    display: block;
+}
+.gabarit_box>select{
+    height: 2rem;
+    width:70px;
+    border:none;
+    border-bottom: 1px solid gray;
+}
+.local_box{
+    display: flex;
+    flex-flow: row;
+}
+.button_det{
+    margin: 1rem 10rem;
+    height: 2rem;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+.confirm{
+    width: 50vw;
+    display: block;
+}
+.confirm>p{
+    text-align: center;
+}
+.close{
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
+}
+.button_box{
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+}
+.button{
+    width: 40%;
+    cursor: pointer;
+    height: 3rem;
+    color: beige;
+    text-align: center;
+    margin: 1rem;
+    background-color: gray;
+}
+

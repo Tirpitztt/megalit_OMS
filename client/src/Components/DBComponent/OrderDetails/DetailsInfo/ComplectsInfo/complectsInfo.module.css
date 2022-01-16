@@ -1,0 +1,13 @@
+.table_st{
+    width: 100%;
+}
+.title{
+    text-align: center;
+    border-bottom: 1px solid gray;
+    border-top: 2px solid gray;
+}
+th{
+    font-size: .8rem;
+    text-align: left;
+    font-style: italic;
+}

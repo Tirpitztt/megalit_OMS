@@ -1,0 +1,17 @@
+.orders_wrap{
+    margin-top: 3rem;
+}
+.inst_item{
+    display: flex;
+    flex-flow: row nowrap;
+    height: 3rem;
+    align-items: center;
+    justify-content: end;
+    position: fixed;
+    top: 5rem;
+    width: 100%;
+    background-color: #C0C0C0;
+}
+.search_f{
+    width: 30%;
+}

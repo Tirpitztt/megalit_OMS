@@ -1,0 +1,8 @@
+.termin_box{
+    width:100%;
+    display: flex;
+    flex-flow: row nowrap;
+}
+.termin{
+    width:40%;
+}

@@ -1,0 +1,27 @@
+.container {
+    display: grid;
+    grid-template-areas: 'navig navig''main details';
+    grid-template-rows: 2rem 1fr;
+    grid-template-columns: 5fr 7fr;
+    width:100%;
+}
+.navig{
+    grid-area: navig;
+    margin: 5px;
+    display: flex;
+    flex-flow: row;
+}
+.back_but{
+    margin-left: 25px;
+    width: 120px;
+    background-color: darkgrey;
+    border-radius: 7px;
+    color: beige;
+    text-align: center;
+    height: 1.8rem;
+    cursor: pointer;
+}
+.back_but:active{
+    width: 115px;
+    background-color: lightgray;
+}

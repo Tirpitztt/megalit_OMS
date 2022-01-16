@@ -11,7 +11,9 @@ const MontazSec = (props) => {
     let width = watch('width')||0;
     let height = watch('height')||0;
     let size = width+'x'+length+'x'+height;
-
+    const changeSizeMontaz = ()=>{
+        props.setSizeMontaz(size);
+    }
     const deliveryChange=(e)=>{
         props.setDelivery(e.target.value);
         props.changeCrux();
@@ -37,15 +39,15 @@ const MontazSec = (props) => {
                     <div className={c.size_section}>
                         <div>
                             <label>ширина</label>
-                            <input {...register('width')} defaultValue='0' />
+                            <input {...register('width',{onChange:changeSizeMontaz})} defaultValue='0' />
                         </div>
                         <div>
                             <label>длина</label>
-                            <input {...register('length')} defaultValue='0'/>
+                            <input {...register('length',{onChange:changeSizeMontaz})} defaultValue='0'/>
                         </div>
                         <div>
                             <label>высота</label>
-                            <input {...register('height')} defaultValue='0'/>
+                            <input {...register('height',{onChange:changeSizeMontaz})} defaultValue='0'/>
                         </div>
                         <div>
                             <label>Доставка,km: </label>
@@ -58,7 +60,6 @@ const MontazSec = (props) => {
                                     value={props.state.deliveryPoint}/>
                         </div>
                     </div>
-
                     <div className={c.montaz_table_sec}>
                         <div>Размер участка,m: {size}</div>
                         <MontazTable state={props.state.details}

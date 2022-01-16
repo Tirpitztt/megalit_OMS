@@ -5,7 +5,7 @@ class OrderController {
 
     async createNewOrder(req,res){
         try{
-            console.log('req:',req.body);
+            //console.log('req:',req.body);
             let candidate;
             try{
                 let [candi,created] = await Model.customers.findOrCreate({
@@ -27,7 +27,7 @@ class OrderController {
                 return res.status(501).json({message:'error create customer',error:e.message})
             }
 
-
+            let montazSize = [0,0,0];
             const orders = await Model.orders.findAll();
             const lastOrder = orders.slice(-1)[0];
             const order = await Model.orders.create({
@@ -83,11 +83,14 @@ class OrderController {
                     })
                 }
             }
+            if(req.body.newOrder.montaz.size){
+                montazSize = req.body.newOrder.montaz.size.split('x');
+            }
             let montaz = await Model.montaz.create({
                 orderId:order.id,
-                height:0,
-                width:0,
-                weight:0,
+                height:Number(montazSize[2]),
+                width:Number(montazSize[0]),
+                weight:Number(montazSize[1]),
                 delivery:req.body.newOrder.montaz.delivery,
                 delivery_point:req.body.newOrder.montaz.deliveryPoint
             })

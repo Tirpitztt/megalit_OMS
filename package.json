@@ -10,6 +10,7 @@
     "dev": "concurrently \"npm run server\" \"npm run client\" "
   },
   "keywords": [],
+  "engines": { "node" : "14.16.0" },
   "author": "Tirpitz <siroga.tt@mail.ru>",
   "license": "ISC",
   "dependencies": {

@@ -29,7 +29,7 @@ class OrderController {
 
             let montazSize = [0,0,0];
             const orders = await Model.orders.findAll();
-            const lastOrder = orders.slice(-1)[0];
+            const lastOrder = orders.slice(-1)[0]||0;
             const order = await Model.orders.create({
                 customerId:candidate.id,
                 employerId:req.body.orderOption.employer.id,

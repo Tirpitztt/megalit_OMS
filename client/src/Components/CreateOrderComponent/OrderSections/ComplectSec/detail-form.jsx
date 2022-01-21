@@ -11,6 +11,7 @@ const DetailForm = (props) => {
     let {material} = useMaterial();
     let {register,handleSubmit,watch,reset} = useForm();
     let dataPrice = watch('dataPrice');
+    let [isErr,setErr] = useState(false);
 
     let options = 'no data';
     if(material){
@@ -28,7 +29,13 @@ const DetailForm = (props) => {
             setCost(e.target.value);
         }
     }
-
+    const amountChange = (e)=>{
+        if(e.target.value.includes(',')){
+            setErr(true);
+        }else{
+            setErr(false);
+        }
+    }
     const onSubmit = (body)=>{
         body.ind = props.number;
         body.id = detailId;
@@ -91,7 +98,8 @@ const DetailForm = (props) => {
                 </div>
                 <div className={c.form_section}>
                     <label>количество</label>
-                    <input {...register('amount')} defaultValue='1' />
+                    <div className={isErr?c.activeErr:c.hide}><p>Запятую НЕЛЬЗЯ!</p></div>
+                    <input {...register('amount',{onChange:amountChange})} defaultValue='1'/>
                 </div>
             </div>
             <div className={c.form_body}>

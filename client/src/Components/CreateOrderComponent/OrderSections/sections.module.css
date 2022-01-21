@@ -178,3 +178,18 @@ fieldset{
 .montaz_table_sec{
     margin-top: 20px;
 }
+.activeErr{
+    text-align: center;
+    font-family: inglobal;
+    width:100px;
+    height: 2.5rem;
+    background-color: #FF0000;
+    border-radius: 7px;
+}
+.activeErr>p{
+    margin: 0;
+    color: white;
+}
+.hide{
+    display:none;
+}

@@ -1,10 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import c from "../sections.module.css";
 import {useForm} from "react-hook-form";
 
 const HandelForm = (props) => {
     let {register,handleSubmit,reset} = useForm();
+    let [isErr,setErr] = useState(false);
 
+    const amountChange = (e)=>{
+        if(e.target.value.includes(',')){
+            setErr(true);
+        }else{
+            setErr(false);
+        }
+    }
     const onSubmit = (body)=>{
         body.id = Math.ceil(Math.random()*1000);
         props.setHand(body);
@@ -44,7 +52,8 @@ const HandelForm = (props) => {
                 </div>
                 <div className={c.form_section}>
                     <label>количество</label>
-                    <input {...register('amount')} defaultValue='1'/>
+                    <div className={isErr?c.activeErr:c.hide}><p>Запятую НЕЛЬЗЯ!</p></div>
+                    <input {...register('amount',{onChange:amountChange})} defaultValue='1'/>
                 </div>
             </div>
             <div className={c.form_body}>

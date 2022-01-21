@@ -24,7 +24,7 @@ const ComplectSec = (props) => {
     }
 
     if(props.state.length){
-        disabled = false;
+        disabled=false;
         complects = props.state.map((item,i)=>{
             return <div key={i}>
                 <div className={c.compl_title}>

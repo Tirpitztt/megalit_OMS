@@ -23,7 +23,6 @@ const OrderReduser = (state=initialState,action)=>{
             newState.customer = {...action.data.customer};
             newState.order = {...action.data.order};
             newState.material = {...action.data.material};
-            console.log(newState.order);
             return newState;
         }
         case SET_BOOL_ORDER:{
@@ -92,7 +91,6 @@ export const getOrderThunkCreator = (number)=>{
 export const saveChangeThunkCreator = (body)=>{
     return(dispatch)=>{
         ordersAPI.changeOrder(body).then(data=>{
-            console.log(data)
         })
     }
 }
@@ -111,7 +109,6 @@ export const getPriceThunkCreator = (body,flag)=>{
 export const createComplectThunkCreator = (body)=>{
     return(dispatch)=>{
         createOrderAPI.createComplect(body).then(data=>{
-            console.log(data);
         })
     }
 

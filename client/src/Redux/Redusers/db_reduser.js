@@ -31,7 +31,6 @@ const DBReduser = (state=initialState,action)=>{
                             order:{order}
                         }
                         newState.order = newOrder;
-                        console.log(newState.order);
                     }
                 })
             })

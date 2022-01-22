@@ -11,7 +11,6 @@ const Navbar = (props)=>{
             <NavLink to='/admin'><p>ADM</p></NavLink>
         </div>
     }
-    console.log(userRole);
     let path = {
         home:'/home',
         db:'/db',

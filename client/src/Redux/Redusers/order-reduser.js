@@ -50,8 +50,6 @@ const OrderReduser = (state=initialState,action)=>{
                     }
                     break;
                 }
-
-
             }
 
             return newState;

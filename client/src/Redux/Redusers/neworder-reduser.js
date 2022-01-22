@@ -182,7 +182,7 @@ const NeworderReduser = (state=initialState, action)=>{
         }
         case SET_PAYMENT:{
             let newState = {...state};
-            newState.newOrder.calculation.payments = [...state.newOrder.calculation.payments,action.data];
+            newState.newOrder.calculation.payments[0] = action.data;
             return newState;
         }
         case SET_DISCOUNT:{

@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import c from "../sections.module.css";
 import {useForm} from "react-hook-form";
+import {buildFloat} from "../../../../Utils/buildNum";
 
 const MontazForm = (props) => {
-    let {register,handleSubmit,reset} = useForm();
+    let {register,handleSubmit,reset,watch} = useForm();
     let [isErr,setErr] = useState(false);
-
     const amountChange = (e)=>{
         if(e.target.value.includes(',')){
             setErr(true);
@@ -15,6 +15,8 @@ const MontazForm = (props) => {
     }
     const onSubmit = (body)=>{
         body.id = Math.ceil(Math.random()*1000);
+        body.price = buildFloat(body.price);
+        body.amount = buildFloat(body.amount);
         props.setMontaz(body);
         props.changeCrux();
         reset();
@@ -54,13 +56,13 @@ const MontazForm = (props) => {
             <div className={c.form_body}>
                 <div className={c.form_section}>
                     <label>цена</label>
-                    <input {...register('price')}/>
+                    <input {...register('price',{onChange:amountChange})}/>
                 </div>
                 <div className={c.form_section}>
                     <label>количество</label>
-                    <div className={isErr?c.activeErr:c.hide}><p>Запятую НЕЛЬЗЯ!</p></div>
                     <input {...register('amount',{onChange:amountChange})} defaultValue='1'/>
                 </div>
+                <div className={isErr?c.activeErr:c.hide}><p>Запятую НЕЛЬЗЯ!</p></div>
             </div>
             <div className={c.form_body}>
                 <button className={c.add_button} type='submit'>добавить</button>

@@ -3,6 +3,7 @@ import c from './../sections.module.css'
 import {useMaterial} from "../../../../Hooks/material.hook";
 import {useForm} from "react-hook-form";
 import {setPrice} from "../../../../Utils/support";
+import {buildFloat} from "../../../../Utils/buildNum";
 
 const DetailForm = (props) => {
     let [flag,setFlag] = useState(true);
@@ -39,14 +40,15 @@ const DetailForm = (props) => {
     const onSubmit = (body)=>{
         body.ind = props.number;
         body.id = detailId;
-        body.price = cost;
+        body.price = buildFloat(cost);
         body.sort = 'B';
         body.local='sklad';
         body.status = 'no';
-        body.height = dataPrice[1].height;
-        body.width = dataPrice[2].width;
+        body.height = dataPrice[1].height||0;
+        body.width = dataPrice[2].width||0;
         body.weight = dataPrice[3].weight;
         body.material = dataPrice[0].material;
+        body.amount = buildFloat(body.amount);
         props.setDetail(body);
         props.changeCrux();
         reset();
@@ -87,9 +89,9 @@ const DetailForm = (props) => {
                     <option value="t_15">15</option>
                 </select>
                 <label>выс</label>
-                <input {...register('dataPrice.1.height')} defaultValue='0'/>
+                <input {...register('dataPrice.1.height')} />
                 <label>шир</label>
-                <input {...register('dataPrice.2.width')} defaultValue='0'/>
+                <input {...register('dataPrice.2.width')} />
             </fieldset>
             <div className={c.form_body}>
                 <div className={c.form_section}>
@@ -98,9 +100,9 @@ const DetailForm = (props) => {
                 </div>
                 <div className={c.form_section}>
                     <label>количество</label>
-                    <div className={isErr?c.activeErr:c.hide}><p>Запятую НЕЛЬЗЯ!</p></div>
                     <input {...register('amount',{onChange:amountChange})} defaultValue='1'/>
                 </div>
+                <div className={isErr?c.activeErr:c.hide}><p>Запятую НЕЛЬЗЯ!</p></div>
             </div>
             <div className={c.form_body}>
                 <button className={c.add_button}

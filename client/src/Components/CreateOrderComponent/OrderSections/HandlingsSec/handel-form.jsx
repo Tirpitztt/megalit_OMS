@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import c from "../sections.module.css";
 import {useForm} from "react-hook-form";
+import {buildFloat} from "../../../../Utils/buildNum";
 
 const HandelForm = (props) => {
     let {register,handleSubmit,reset} = useForm();
@@ -15,6 +16,8 @@ const HandelForm = (props) => {
     }
     const onSubmit = (body)=>{
         body.id = Math.ceil(Math.random()*1000);
+        body.price = buildFloat(body.price);
+        body.amount = buildFloat(body.amount);
         props.setHand(body);
         props.changeCrux();
         reset();
@@ -48,13 +51,13 @@ const HandelForm = (props) => {
             <div className={c.form_body}>
                 <div className={c.form_section}>
                     <label>цена</label>
-                    <input {...register('price')}/>
+                    <input {...register('price',{onChange:amountChange})}/>
                 </div>
                 <div className={c.form_section}>
                     <label>количество</label>
-                    <div className={isErr?c.activeErr:c.hide}><p>Запятую НЕЛЬЗЯ!</p></div>
                     <input {...register('amount',{onChange:amountChange})} defaultValue='1'/>
                 </div>
+                <div className={isErr?c.activeErr:c.hide}><p>Запятую НЕЛЬЗЯ!</p></div>
             </div>
             <div className={c.form_body}>
                 <button className={c.add_button} type='submit'>добавить</button>

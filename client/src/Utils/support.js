@@ -2,8 +2,8 @@
 
 export const setPrice = (data,material,func)=>{
     if(data!==undefined&&data.length){
-        let height = data[1].height;
-        let width = data[2].width;
+        let height = data[1].height||0;
+        let width = data[2].width||0;
         let weight = data[3].weight;
         let mat = data[0].material;
         let price2m = 0;

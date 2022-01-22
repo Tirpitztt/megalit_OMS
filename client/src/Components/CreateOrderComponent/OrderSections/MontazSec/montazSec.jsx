@@ -3,6 +3,7 @@ import c from '../sections.module.css'
 import MontazForm from "./montaz-form";
 import {useForm} from "react-hook-form";
 import MontazTable from "./montaz-table";
+import {buildFloat} from "../../../../Utils/buildNum";
 
 const MontazSec = (props) => {
 
@@ -15,7 +16,7 @@ const MontazSec = (props) => {
         props.setSizeMontaz(size);
     }
     const deliveryChange=(e)=>{
-        props.setDelivery(e.target.value);
+        props.setDelivery(buildFloat(e.target.value));
         props.changeCrux();
     }
     const deliveryPointChange=(e)=>{

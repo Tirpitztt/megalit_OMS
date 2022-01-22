@@ -53,6 +53,7 @@ fieldset{
     background-color: white;
 }
 .form_body{
+    position:relative;
     display: flex;
     width: 95%;
     flex-flow: column nowrap;
@@ -179,6 +180,9 @@ fieldset{
     margin-top: 20px;
 }
 .activeErr{
+    position: absolute;
+    top:10%;
+    left:22%;
     text-align: center;
     font-family: inglobal;
     width:100px;

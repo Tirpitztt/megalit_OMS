@@ -128,7 +128,21 @@ export const supportAPI={
                 return response.data
             }
         )
+    },
+    getContures(){
+        return instance.get('/support/contures').then(
+                response=>{
+                    return response.data
+                })
+    },
+    getConturesEntry(body){
+        return instance.post('/support/contures',body).then(
+            response=>{
+                return response.data
+            })
     }
+
+
 }
 export const usersAPI = {
     registrationUser(body){

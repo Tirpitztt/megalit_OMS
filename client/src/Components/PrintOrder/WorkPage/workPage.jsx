@@ -14,6 +14,7 @@ const WorkPage = (props) => {
             </div>
             <UpperSec calculation={props.order.calculation}
                       rate={props.rate}
+                      sketchPath={props.order.handling.sketch_path}
                       termin={props.order.termin}
                       customer={props.customer} />
             <MiddleSec text={props.order.handling.text_grav} />

@@ -1,16 +1,22 @@
 import React from 'react';
 import c from './workPage.module.css';
 
-const UpperSec = ({calculation,termin,customer,rate}) => {
+const UpperSec = ({calculation,termin,customer,rate,sketchPath}) => {
     let avans = 0;
     if(calculation.payments.length){
         calculation.payments.forEach(item=>{
             avans += item.summa;
         })
     }
+    let img = '';
+    if(sketchPath){
+        img = <img src={sketchPath} alt=""/>
+    }
     return (
         <div className={c.upper_wrap}>
-            <div className={c.upper_box}></div>
+            <div className={c.upper_box}>
+                <div>{img}</div>
+            </div>
             <div className={c.upper_box}>
                 <div className={c.customer_box}>
                     <div className={c.cust_row}>

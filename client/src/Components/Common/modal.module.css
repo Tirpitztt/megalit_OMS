@@ -21,6 +21,16 @@
     position: relative;
     padding: 1rem;
 }
+.contentSketch{
+    width: 60vw;
+    height: 80vh;
+    background-color: beige;
+    border-radius: 15px;
+    position: relative;
+    padding: 1rem;
+    overflow: hidden;
+    overflow-y: scroll;
+}
 .content table{
     width: 100%;
 }
@@ -119,4 +129,34 @@
     margin: 1rem;
     background-color: gray;
 }
-
+.folder_row{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 2.5rem;
+    border-bottom: 1px solid gray;
+    cursor:pointer;
+}
+.folder_row>div{
+    width: 50%;
+}
+.img_display{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+.img_row{
+    width: 170px;
+    height: 200px;
+    border:1px solid gray;
+    border-radius: 7px;
+    padding: 1rem;
+    cursor: pointer;
+    margin-top: 1.5rem;
+}
+.img_row>img{
+    margin: auto;
+    width: 90%;
+}

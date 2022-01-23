@@ -12,6 +12,10 @@ const MainInfo = (props)=>{
     const showPayments = ()=>{
         props.active(true);
     }
+    let img = '';
+    if(order.handling.sketch_path){
+        img = <img src={order.handling.sketch_path} alt=""/>
+    }
     return(
         <div className={c.main_section}>
             <div className={c.wrapper}>
@@ -65,6 +69,10 @@ const MainInfo = (props)=>{
             <div className={c.text_wrap}>
                 <p className={c.title_text}>Надписи для гравировки</p>
                 <div className={c.epitaf}>{order.handling!==null?order.handling.text_grav:'no text'}</div>
+            </div>
+            <div className={c.text_wrap}>
+                <p className={c.title_text}>Эскиз формы</p>
+                <div className={c.epitaf}>{img}</div>
             </div>
 
             <Modal modal={props.modal}

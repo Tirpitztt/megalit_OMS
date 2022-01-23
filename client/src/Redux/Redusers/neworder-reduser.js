@@ -25,6 +25,7 @@ const SET_DISCOUNT = 'SET_DISCOUNT';
 const CHANGE_MAKER = 'CHANGE_MAKER';
 const SET_STATUS_OK = 'SET_STATUS_OK';
 const SET_NUMBER = 'SET_NUMBER';
+const SET_SKETCH_PATH = 'SET_SKETCH_PATH';
 const CLEAR_STATE = 'CLEAR_STATE';
 
 let initialState = {
@@ -37,6 +38,7 @@ let initialState = {
         handlings:{
             hydrophob:false,
             text_gravi:'',
+            sketchPath:'',
             details:[]
         },
         montaz:{
@@ -210,6 +212,11 @@ const NeworderReduser = (state=initialState, action)=>{
             newState.materials = action.data;
             return newState;
         }
+        case SET_SKETCH_PATH:{
+            let newState = {...state};
+            newState.newOrder.handlings.sketchPath = action.data;
+            return newState;
+        }
         case CLEAR_STATE:{
             let newState = {
                 customer:{
@@ -221,6 +228,7 @@ const NeworderReduser = (state=initialState, action)=>{
                     handlings:{
                         hydrophob:false,
                         text_gravi:'',
+                        sketchPath:'',
                         details:[]
                     },
                     montaz:{
@@ -279,6 +287,7 @@ export const changeMaker = (data)=>({type:CHANGE_MAKER,data});
 export const setStatusOK = (bool)=>({type:SET_STATUS_OK,bool});
 export const setNumber = (number)=>({type:SET_NUMBER,number});
 export const getMaterials = (data)=>({type:GET_MATERIALS,data});
+export const setSketchPath = (data)=>({type:SET_SKETCH_PATH,data});
 export const clear = ()=>({type:CLEAR_STATE});
 
 export const getAllCustomersThunkCreator = ()=>{

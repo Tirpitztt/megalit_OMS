@@ -7,10 +7,10 @@ import Information from "./information";
 
 
 const Specification = (props) => {
-    console.log(props.customer)
-    console.log(props.order)
-
-
+    let img = '';
+    if(props.order.handling.sketch_path){
+        img = <img src={props.order.handling.sketch_path} alt=""/>
+    }
     return (
         <div className={c.wrapper}>
             <div className={c.head}>
@@ -24,6 +24,7 @@ const Specification = (props) => {
                 <div className={c.left_box}>
                     <div className={c.picture_box}>
                         <div className={c.title}>эскиз</div>
+                        <div className={c.sketchBox}>{img}</div>
                     </div>
                     <div className={c.information}>
                         <div className={c.title}>к сведению заказчика</div>

@@ -49,8 +49,10 @@ const SketchModal = ({active,setActive,setPath}) => {
     return (
         <div className={active?c.active:c.modalwr}>
             <div className={c.contentSketch}>
-                <div className={c.close} onClick={()=>setActive(false)}>X</div>
-                <div><p>Выбрать эскиз</p></div>
+                <div className={c.sketch_title_box}>
+                    <div className={c.close} onClick={()=>setActive(false)}>X</div>
+                    <div><p>Выбрать эскиз</p></div>
+                </div>
                 {display}
             </div>
 

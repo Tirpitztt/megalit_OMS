@@ -1,22 +1,20 @@
 const AWS = require('aws-sdk');
-const config = require('config');
+const { ListObjectsCommand } = require("@aws-sdk/client-s3");
+const s3Client = require("../libs/s3Client");
 
 class AwsController {
     constructor() {
         AWS.config.setPromisesDependency();
-        AWS.config.update({
-            accessKeyId:config.get('awsAccessKey'),
-            secretAccessKey:config.get('awsSecretAccessKey'),
-            region:'eu-central-1'
-        })
     }
+
     async getContures(req,res){
         try{
-            const s3 = new AWS.S3();
-            const response = await s3.listObjectsV2({
+            const bucketParams = {
                 Bucket:'elasticbeanstalk-eu-central-1-512346490374',
-                Prefix:'megalit/contures'
-            }).promise();
+                Prefix:'megalit/contures/'
+            }
+            const response = await s3Client.send(new ListObjectsCommand(bucketParams));
+            //const response = await s3Client.send(new ListMultipartUploadsCommandOutput(bucketParams));
             return res.status(200).json(response);
         }catch (e) {
             return res.status(400).json({message:'get files error:'+e.message})
@@ -24,16 +22,14 @@ class AwsController {
     }
     async getConturesFolder(req,res){
         try{
-            let pref = 'megalit/contures';
-            console.log(req.body)
-            if(req.body){
-                pref = req.body.path.slice(0,req.body.path.length);
-            }
-            const s3 = new AWS.S3();
-            const response = await s3.listObjectsV2({
+            const bucketParams = {
                 Bucket:'elasticbeanstalk-eu-central-1-512346490374',
-                Prefix:pref
-            }).promise();
+                Prefix:'megalit/contures/'
+            }
+            if(req.body){
+                bucketParams.Prefix = req.body.path.slice(0,req.body.path.length);
+            }
+            const response = await s3Client.send(new ListObjectsCommand(bucketParams));
             return res.status(200).json(response);
         }catch (e) {
             return res.status(400).json({message:'server err:',err:e.message});

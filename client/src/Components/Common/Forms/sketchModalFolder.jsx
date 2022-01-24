@@ -23,7 +23,7 @@ const SketchModalFolder = ({state,select}) => {
         return <div key={i}>{folder}</div>
     })
     return (
-        <div>
+        <div className={c.folder_box}>
             {display}
         </div>
     );

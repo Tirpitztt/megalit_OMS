@@ -15,7 +15,7 @@ const UpperSec = ({calculation,termin,customer,rate,sketchPath}) => {
     return (
         <div className={c.upper_wrap}>
             <div className={c.upper_box}>
-                <div>{img}</div>
+                <div className={c.img_box}>{img}</div>
             </div>
             <div className={c.upper_box}>
                 <div className={c.customer_box}>

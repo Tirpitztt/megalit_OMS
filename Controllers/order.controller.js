@@ -69,6 +69,7 @@ class OrderController {
             let handlings = await Model.handlings.create({
                 orderId:order.id,
                 hydrophob:req.body.newOrder.handlings.hydrophob,
+                sketch_path:req.body.newOrder.handlings.sketchPath,
                 text_grav:req.body.newOrder.handlings.text_gravi
             })
             if(req.body.newOrder.handlings.details.length){

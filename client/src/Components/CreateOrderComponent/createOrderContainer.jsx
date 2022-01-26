@@ -24,7 +24,7 @@ import {
     setHandel,
     setMontaz,
     setPayment,
-    setSizeMontaz,
+    setSizeMontaz, setSketchPath,
     setTermin,
     setTextGravi
 } from "../../Redux/Redusers/neworder-reduser";
@@ -64,6 +64,7 @@ class CreateOrderContainer extends React.Component{
                          makerChange={this.props.makerChange}
                          orderCreate={this.props.createNewOrder}
                          setPayment={this.props.setPayment}
+                         setSketchPath={this.props.setSketchPath}
                          clearState={this.props.clearState}
                                 />
         )
@@ -147,6 +148,9 @@ let mapDispatchToProps=(dispatch)=>{
         },
         getMaterials:()=>{
           dispatch(getMatThunkCreator())
+        },
+        setSketchPath:(body)=>{
+            dispatch(setSketchPath(body));
         },
         clearState:()=>{
             dispatch(clear());

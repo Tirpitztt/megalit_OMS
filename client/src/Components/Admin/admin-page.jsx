@@ -21,8 +21,6 @@ const AdminPage = (props) => {
                     <UserSection addUser={props.addUser} />
                 </div>
             </div>
-
-
         </div>
     );
 };

@@ -44,6 +44,7 @@ const CreateOrder = (props) => {
                       setHand={props.setHand}
                       delHand={props.delHand}
                       setText={props.setText}
+                      setSketchPath={props.setSketchPath}
                       changeHydro={props.changeHydro}
                       changeCrux={changeCrux}
                       changeDisplay={changeDisplay}/>,

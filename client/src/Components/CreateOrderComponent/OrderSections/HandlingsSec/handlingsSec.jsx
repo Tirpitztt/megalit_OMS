@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import c from '../sections.module.css';
 import HandelForm from "./handel-form";
 import HandelTable from "./handel-table";
+import SketchModal from "../../../Common/Forms/sketchModal";
 
 
 const HandlingsSec = (props) => {
+    const [modalSketch,setModalSketch] = useState(false);
+
     const changeH = ()=>{
         if(props.state.hydrophob){
             props.changeHydro(false);
@@ -13,6 +16,7 @@ const HandlingsSec = (props) => {
         }
         props.changeCrux();
     }
+
     const changeGrav=(e)=>{
         props.setText(e.target.value);
     }
@@ -34,6 +38,9 @@ const HandlingsSec = (props) => {
                         <input type="checkbox"
                                onChange={changeH}
                                checked={props.state.hydrophob}/>
+                        <div className={c.sketchSelect}
+                             onClick={()=>setModalSketch(true)}>
+                            <p>выбрать эскиз</p></div>
                     </div>
                     <div className={c.text_box}>
                         <label>Текст для нанесения</label>
@@ -53,6 +60,9 @@ const HandlingsSec = (props) => {
                 <button onClick={()=>props.changeDisplay(0)}>  назад </button>
                 <button onClick={()=>props.changeDisplay(2)}>далее > </button>
             </div>
+            <SketchModal active={modalSketch}
+                         setActive={setModalSketch}
+                         setPath={props.setSketchPath}/>
         </div>
     );
 };

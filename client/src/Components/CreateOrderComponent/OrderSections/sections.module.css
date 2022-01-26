@@ -97,6 +97,7 @@ fieldset{
     height: 3rem;
     display: flex;
     flex-flow: row;
+    align-items: center;
 }
 .text_box{
     width: 100%;
@@ -196,4 +197,18 @@ fieldset{
 }
 .hide{
     display:none;
+}
+.sketchSelect{
+    text-align: center;
+    width: 170px;
+    height: 2.5rem;
+    border:2px solid gray;
+    border-radius: 7px;
+    cursor: pointer;
+}
+.sketchSelect>p{
+    font-family: inglobal;
+    color: dimgrey;
+    font-weight: bold;
+    margin-top: .5rem;
 }

@@ -5,7 +5,7 @@ import {connect} from "react-redux";
 import {
     changeHydro,
     changeMaker,
-    clear,
+    clear, correctApply,
     createOrderThunkCreator,
     createTotalCostThunkCreator,
     deleteComplect,
@@ -46,6 +46,7 @@ class CreateOrderContainer extends React.Component{
                          setEmployer={this.props.setEmployer}
                          setFindCust={this.props.setFindCust}
                          setComplect={this.props.setComplect}
+                         correctApply={this.props.correctApply}
                          delCompl={this.props.delComplect}
                          setDetail={this.props.setDetail}
                          delDetal={this.props.delDetal}
@@ -91,6 +92,9 @@ let mapDispatchToProps=(dispatch)=>{
         },
         setComplect:(data)=>{
             dispatch(setComplect(data));
+        },
+        correctApply:(data)=>{
+          dispatch(correctApply(data));
         },
         setDetail:(detail)=>{
             dispatch(setDetail(detail));

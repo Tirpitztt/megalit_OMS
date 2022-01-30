@@ -5,7 +5,7 @@ import FinalForm from "./final-form";
 import {NavLink} from "react-router-dom";
 
 const FinalSec = (props) => {
-
+    let [disabl,setDisabl] = useState(true);
     const makerVar = (maker)=>{
         props.makerChange(maker);
     }
@@ -37,6 +37,7 @@ const FinalSec = (props) => {
                     </div>
                     <CustomerForm state={props.state}
                                   bild={customerBuild}
+                                  setDis={setDisabl}
                                   setFindCust={props.setFindCust}/>
                 </div>
                 <div className={c.table_box}>
@@ -57,7 +58,7 @@ const FinalSec = (props) => {
             </div>
             <div className={c.button_box}>
                 <button onClick={()=>props.changeDisplay(2)}>назад </button>
-                <button onClick={saveClick}>Сохранить</button>
+                <button onClick={saveClick} disabled={disabl}>Сохранить</button>
             </div>
         </div>
     );

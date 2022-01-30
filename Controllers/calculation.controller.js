@@ -177,9 +177,11 @@ class CalculationController {
         try{
             let totalCost = 0;
             req.body.complects.forEach((complect)=>{
-                complect.details.forEach((item)=>{
-                    totalCost += (item.price*item.amount);
-                })
+                // complect.details.forEach((item)=>{
+                //     totalCost += (item.price*item.amount);
+                //
+                // })
+                totalCost += complect.summCompl;
             })
             if(req.body.handlings.hydrophob){
                 totalCost += 20;

@@ -8,6 +8,7 @@ import {setNameDetailList} from "../../../../Utils/support";
 
 const ComplectSec = (props) => {
     let {register,handleSubmit} = useForm();
+    let [correct,setCorrect] = useState(0);
     let [complectActive,setComplectActive] = useState(1);
     let [nameList,setNameList] = useState([]);
     let disabled = true;
@@ -22,7 +23,17 @@ const ComplectSec = (props) => {
         props.delCompl(data);
         props.changeCrux();
     }
-
+    const correctChange = (e)=>{
+        setCorrect(e.target.value);
+    }
+    const correctApply = (num)=>{
+        let data = {
+            num:num,
+            correct:correct
+        }
+        props.correctApply(data);
+        props.changeCrux();
+    }
     if(props.state.length){
         disabled=false;
         complects = props.state.map((item,i)=>{
@@ -31,6 +42,11 @@ const ComplectSec = (props) => {
                     <p onClick={()=>complectClick(item.number,item.type)}
                        className={complectActive===item.number?c.active_compl:''}
                     >Комплект: <i>{item.type}</i></p>
+                    <div className={c.correct_box}><label>коррекция</label><input
+                        onChange={(e)=>correctChange(e)}
+                        onBlur={()=>correctApply(item.number)}
+                        defaultValue={correct}/></div>
+                    <div className={c.correct_box}><label>сумма</label><p>{item.summCompl}</p></div>
                     <div className={c.del_but}>
                         <DeleteButton del={delCompl} number={item.number}/>
                     </div>
@@ -45,6 +61,7 @@ const ComplectSec = (props) => {
     const onSubmit = (body)=>{
         body.number = Math.ceil(Math.random()*1000);
         body.details = [];
+        body.summCompl = 0;
         props.setComplect(body);
     }
     return (

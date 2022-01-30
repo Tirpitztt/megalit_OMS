@@ -1,6 +1,7 @@
 module.exports = (sequelize,DataTypes)=>{
     const Complect = sequelize.define('complects',{
         orderId:{type:DataTypes.INTEGER},
+        summComplect:{type:DataTypes.FLOAT},
         type:{type:DataTypes.STRING}
     },{timestamps:false});
 

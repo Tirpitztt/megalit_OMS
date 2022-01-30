@@ -7,6 +7,11 @@ import SketchModal from "../../../Common/Forms/sketchModal";
 
 const HandlingsSec = (props) => {
     const [modalSketch,setModalSketch] = useState(false);
+    let sketchFile = <label>эскиз не выбран</label>;
+    if(props.state.sketchPath){
+        let fileName = props.state.sketchPath.split('/');
+        sketchFile = <label>{fileName[fileName.length-1]}</label>
+    }
 
     const changeH = ()=>{
         if(props.state.hydrophob){
@@ -38,6 +43,7 @@ const HandlingsSec = (props) => {
                         <input type="checkbox"
                                onChange={changeH}
                                checked={props.state.hydrophob}/>
+                        <div className={c.sketch_box}>{sketchFile}</div>
                         <div className={c.sketchSelect}
                              onClick={()=>setModalSketch(true)}>
                             <p>выбрать эскиз</p></div>

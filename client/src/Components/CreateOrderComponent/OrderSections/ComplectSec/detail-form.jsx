@@ -87,6 +87,9 @@ const DetailForm = (props) => {
                     <option value="t_10">10</option>
                     <option value="t_12">12</option>
                     <option value="t_15">15</option>
+                    <option value="t_20">20</option>
+                    <option value="t_25">25</option>
+                    <option value="t_30">30</option>
                 </select>
                 <label>выс</label>
                 <input {...register('dataPrice.1.height')} />

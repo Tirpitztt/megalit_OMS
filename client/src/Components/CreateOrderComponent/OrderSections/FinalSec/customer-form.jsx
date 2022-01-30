@@ -50,7 +50,8 @@ const CustomerForm = (props) => {
             <div className={c.form_body}>
                 <div className={c.form_section}>
                     <label>Фамилия</label>
-                    <input {...register('fields.0.last_name',{onChange:setFindList})}
+                    <input {...register('fields.0.last_name',{onChange:setFindList,
+                        onBlur:()=>props.setDis(false)})}
                     value={isSelected?props.state.customer.findingCustomer.last_name:lastName}/>
                 </div>
                 <div className={c.form_section}>

@@ -35,6 +35,7 @@ const CreateOrder = (props) => {
     let statePage = [
         <ComplectSec state={props.state.newOrder.complects}
                      setDetail={props.setDetail}
+                     correctApply={props.correctApply}
                      delDetal={props.delDetal}
                      setComplect={props.setComplect}
                      delCompl={props.delCompl}

@@ -2,12 +2,13 @@ import React from 'react';
 import c from './workPage.module.css';
 
 const UpperSec = ({calculation,termin,customer,rate,sketchPath}) => {
-    let avans = 0;
-    if(calculation.payments.length){
-        calculation.payments.forEach(item=>{
-            avans += item.summa;
-        })
-    }
+    let avans = calculation.payments[0].summa;
+    let avansBlr = calculation.payments[0].summaBlr
+    // if(calculation.payments.length){
+    //     calculation.payments.forEach(item=>{
+    //         avans += item.summa;
+    //     })
+    // }
     let img = '';
     if(sketchPath){
         img = <img src={sketchPath} alt=""/>
@@ -44,7 +45,7 @@ const UpperSec = ({calculation,termin,customer,rate,sketchPath}) => {
                     </div>
                     <div className={c.row_calc}>
                         <p className={c.lbl}>Аванс:</p>
-                        <p>{(avans*rate).toFixed(2)} <span>бел.руб</span></p>
+                        <p>{(avansBlr).toFixed(2)} <span>бел.руб</span></p>
                         <p>{avans.toFixed(2)} </p>
                     </div>
                     <div className={c.row_calc}>

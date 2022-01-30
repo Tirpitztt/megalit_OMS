@@ -101,6 +101,7 @@
     width: 100%;
     display: flex;
     flex-flow: row;
+    padding: 1rem;
 }
 .content_item{
     width: 50%;

@@ -1,10 +1,24 @@
 .admin_box{
     height: 2.5rem;
-}
-
-.content{
+    width: 91%;
+    position: fixed;
+    background-color: lavender;
     display: flex;
     flex-flow: row nowrap;
+    align-items: center;
+}
+.admin_butt_wrap button{
+    margin-left: 10px;
+    cursor: pointer;
+}
+.content{
+    padding-top: 2.5rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+.item_content{
+
 }
 .left{
     width: 65%;
@@ -12,13 +26,47 @@
 .right{
     width: 35%;
 }
-
-
-
+.user_box{
+    width: 25vw;
+}
+.material_box{
+    width: 40vw;
+}
 .table_box{
     width: 100%;
 }
 
 .table{
     width:100%;
+}
+
+.granit_box, .beton_box, .magazin_box{
+    width: 70vw;
+}
+.material_box, .user_box, .granit_box, .beton_box, .magazin_box{
+    margin-top: 1rem;
+    height: 35vh;
+    overflow-y: auto;
+    border: 1px solid gray;
+    border-radius: 15px;
+}
+.section_but_box{
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    height: 2rem;
+}
+.section_but_box div:first-child{
+    width: 80%;
+}
+.section_but_box div:last-child{
+    width: 18%;
+}
+.button_close{
+    margin-top: 3px;
+    float: right;
+    cursor: pointer;
+    background-color: orangered;
+    border-radius: 50%;
+    border-color: orangered;
 }

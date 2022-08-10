@@ -88,6 +88,20 @@ fieldset{
     height: 75%;
     width: 90%;
 }
+.correct_box{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.correct_box>input{
+    width: 70px;
+    height: 1.2rem;
+    margin-left: 7px;
+}
+.correct_box>p{
+    margin-left: 7px;
+}
 .table_box{
     width: 55%;
     height: 90%;
@@ -98,13 +112,17 @@ fieldset{
     display: flex;
     flex-flow: row;
     align-items: center;
+    justify-content: space-around;
+}
+.check_box>input{
+    width: 50px;
 }
 .text_box{
     width: 100%;
 }
 .text_box>textarea{
     width: 59%;
-    height: 5rem;
+    height: 10rem;
 }
 .button_box{
     position: absolute;
@@ -177,6 +195,7 @@ fieldset{
 .hand_table{
     width: 100%;
 }
+
 .montaz_table_sec{
     margin-top: 20px;
 }
@@ -197,6 +216,13 @@ fieldset{
 }
 .hide{
     display:none;
+}
+.sketch_box{
+    width: 200px;
+    text-align: center;
+}
+.sketch_box>label{
+    width: 100%;
 }
 .sketchSelect{
     text-align: center;

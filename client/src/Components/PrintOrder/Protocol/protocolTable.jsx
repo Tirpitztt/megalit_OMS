@@ -1,17 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
 import c from './protocol.module.css';
-import {monumentRow, ogradaRow} from "./UtilsCost/monument-row";
+import {handlingRow, monumentRow, monumentRowWithHandl, ogradaRow} from "./UtilsCost/monument-row";
 const ProtocolTable = (props) => {
     let rows = [];
     let row = '';
     let count = 1;
+    //let [handel,setHandel] = useState(true);
+    let handel = true;
     if(props.state){
         if(props.state.complects.length){
             props.state.complects.forEach((item)=>{
                 if(item.type==='памятник'){
-                    row=monumentRow(item,count,props.rate);
+                    if(handel){
+                        row=monumentRowWithHandl(item,count,props.rate,props.state.handling);
+                        //setHandel(false);
+                        handel = false;
+                    }else {
+                        row=monumentRow(item,count,props.rate);
+                    }
+                    debugger;
                     rows.push(row);
                     count++;
+
                 }
                 if(item.type==='ограда'){
                     row = ogradaRow(item,count,props.rate);
@@ -30,17 +40,8 @@ const ProtocolTable = (props) => {
 
             })
         }
-        if(props.state.handling.handling_items.length){
-            let cost = 0;
-            if(props.state.handling.hydrophob){
-                cost = (20*props.rate);
-            }
-            props.state.handling.handling_items.forEach((item)=>{
-                cost += (item.price*item.amount)*props.rate;
-            })
-            row = <tr><td>{count}</td><td>Обработка (фаски,граверка и пр.)</td>
-                <td>компл</td><td>o</td><td>{cost.toFixed(2)}</td><td>{1}</td>
-                <td>{cost.toFixed(2)}</td></tr>
+        if(props.state.handling.handling_items.length && handel){
+            row = handlingRow(props.state.handling,count,props.rate)
             rows.push(row);
             count++;
         }

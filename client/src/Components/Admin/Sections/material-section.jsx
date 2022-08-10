@@ -51,8 +51,13 @@ const MaterialSection = (props) => {
         });
     }
     return (
-        <div>
-            material table
+        <div className={c.material_box}>
+            <div className={c.section_but_box}>
+                <div></div>
+                <div>
+                    <button className={c.button_close} onClick={()=>props.close('MaterialSection')}>X</button>
+                </div>
+            </div>
             <div className={c.table_box}>
                 <MaterialTable row={matRow} />
                 <button onClick={props.addRowMat}>add row</button>

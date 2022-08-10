@@ -3,10 +3,10 @@ import AdminPage from "./admin-page";
 import {compose} from "redux";
 import {connect} from "react-redux";
 import {
-    addMaterialsThunkCreator, addUserThunkCreator,
+    addMaterialsThunkCreator, addUserThunkCreator, addDisplay,
     changeField, saveMatThunkCreator,
     setSelect,
-    setStateThunkCreator
+    setStateThunkCreator, deleteDisplay
 } from "../../Redux/Redusers/admin-reduser";
 
 
@@ -15,6 +15,7 @@ class AdminContainer extends React.Component{
         this.props.setState();
     }
 
+
     render(){
         return(
             <AdminPage state={this.props.state.adminPage}
@@ -22,6 +23,8 @@ class AdminContainer extends React.Component{
                        changeField={this.props.changeField}
                        saveMat={this.props.saveMat}
                        addUser={this.props.addUser}
+                       addDisp={this.props.addDisplay}
+                       delDisp={this.props.deleteDisplay}
                        selectEl={this.props.selectEl}/>
         )
     }
@@ -50,6 +53,12 @@ let mapDispatchToProps = (dispatch)=>{
         },
         addUser:(body)=>{
             dispatch(addUserThunkCreator(body));
+        },
+        addDisplay:(body)=>{
+            dispatch(addDisplay(body));
+        },
+        deleteDisplay:(body)=>{
+            dispatch(deleteDisplay(body));
         }
     }
 }

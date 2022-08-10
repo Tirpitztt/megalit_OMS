@@ -56,7 +56,7 @@ const UpperSec = ({calculation,termin,customer,rate,sketchPath}) => {
                 </div>
                 <div className={c.prim_box}>
                     <div className={c.row_prim}>Примечание</div>
-                    <div className={c.row_prim}></div>
+                    <div className={c.row_prim}>{rate}</div>
                     <div className={c.row_prim}></div>
                     <div className={c.row_prim}></div>
                 </div>

@@ -6,6 +6,7 @@ const SET_EMPLOYER = 'SET_EMPLOYER';
 const GET_MATERIALS = 'GET_MATERIALS';
 const SET_FINDING_CUSTOMER='SET_FINDING_CUSTOMER';
 const SET_COMPLECT = 'SET_COMPLECT';
+const CORRECT_APPLY = 'CORRECT_APPLY';
 const DELETE_COMPLECT = 'DELETE_COMPLECT';
 const SET_DETAIL = 'SET_DETAIL';
 const DELETE_DETAIL = 'DELETE_DETAIL';
@@ -92,6 +93,20 @@ const NeworderReduser = (state=initialState, action)=>{
             newState.newOrder.complects = [...state.newOrder.complects,action.complect];
             return newState;
         }
+        case CORRECT_APPLY:{
+            let newState = {...state};
+            newState.newOrder.complects = [...state.newOrder.complects];
+            newState.newOrder.complects.forEach((item)=>{
+                if(item.number==action.data.num){
+                    item.summCompl = 0;
+                    item.details.forEach((detail)=>{
+                        item.summCompl += ((detail.price)*(detail.amount));
+                    })
+                    item.summCompl += Number(action.data.correct);
+                }
+            })
+            return newState;
+        }
         case DELETE_COMPLECT:{
             let newState = {...state};
             let result = [];
@@ -134,6 +149,8 @@ const NeworderReduser = (state=initialState, action)=>{
             newState.newOrder.complects = [...state.newOrder.complects];
             newState.newOrder.complects.forEach((item)=>{
                 if(item.number==action.detail.ind){
+                    //console.log('reduse:',action.detail.price);
+                    item.summCompl += ((action.detail.price)*(action.detail.amount));
                     item.details.push(action.detail);
                 }
             })
@@ -267,6 +284,7 @@ export const setState = (data)=>({type:SET_ST,data});
 export const setFindingCustomer = (data)=>({type:SET_FINDING_CUSTOMER,data});
 export const setEmployer = (data)=>({type:SET_EMPLOYER,data});
 export const setComplect = (complect)=>({type:SET_COMPLECT,complect});
+export const correctApply = (data)=>({type:CORRECT_APPLY,data});
 export const setMontaz = (montaz)=>({type:SET_MONTAZ,montaz});
 export const setDetail = (detail)=>({type:SET_DETAIL,detail});
 export const setNewTotalCost = (data)=>({type:SET_TOTAL_COST,data});

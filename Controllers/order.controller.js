@@ -46,6 +46,7 @@ class OrderController {
             for(const item of req.body.newOrder.complects){
                 let complect = await Model.complects.create({
                     orderId:order.id,
+                    summComplect:item.summCompl,
                     type:item.type
                 });
                 for(const detal of item.details){

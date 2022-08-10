@@ -3,12 +3,14 @@ import {supportAPI, usersAPI} from "../../Api/api";
 const SET_STATE = 'SET_STATE';
 const SET_SELECT = 'SET_SELECT';
 const CHANGE_FIELD = 'CHANGE_FIELD';
+const ADD_DISPLAY = 'ADD_DISPLAY';
+const DELETE_DISPLAY = 'DELETE_DISPLAY';
 
 let initialState = {
     materials:[],
     material:[],
     selectEl:0,
-
+    displays:[],
 }
 
 const AdminReduser = (state=initialState,action)=>{
@@ -33,6 +35,28 @@ const AdminReduser = (state=initialState,action)=>{
             })
             return newState;
         }
+        case ADD_DISPLAY:{
+            let newState = {...state};
+            let flag = true;
+            newState.displays.forEach(item=>{
+                if(item.type.name===action.data.type.name){
+                    flag = false;
+                }
+            })
+            if(flag){
+                newState.displays.push(action.data);
+            }
+            return newState;
+        }
+        case DELETE_DISPLAY:{
+            let newState = {...state};
+            newState.displays.forEach((item,i)=>{
+                if(item.type.name===action.data){
+                    newState.displays.splice(i,1);
+                }
+            })
+            return newState;
+        }
         default:return state
     }
 }
@@ -40,6 +64,8 @@ const AdminReduser = (state=initialState,action)=>{
 export const setState = (data)=>({type:SET_STATE,data});
 export const setSelect = (data)=>({type:SET_SELECT,data});
 export const changeField = (data)=>({type:CHANGE_FIELD,data});
+export const addDisplay = (data)=>({type:ADD_DISPLAY,data});
+export const deleteDisplay = (data)=>({type:DELETE_DISPLAY,data});
 
 export const setStateThunkCreator = ()=>{
     return(dispatch)=>{

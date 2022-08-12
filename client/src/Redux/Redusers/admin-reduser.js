@@ -9,7 +9,7 @@ const DELETE_DISPLAY = 'DELETE_DISPLAY';
 let initialState = {
     materials:[],
     material:[],
-    selectEl:0,
+    selectElement:0,
     displays:[],
 }
 
@@ -23,7 +23,7 @@ const AdminReduser = (state=initialState,action)=>{
         }
         case SET_SELECT:{
             let newState = {...state};
-            newState.selectEl = action.data;
+            newState.selectElement = action.data;
             return newState;
         }
         case CHANGE_FIELD:{
@@ -39,7 +39,7 @@ const AdminReduser = (state=initialState,action)=>{
             let newState = {...state};
             let flag = true;
             newState.displays.forEach(item=>{
-                if(item.type.name===action.data.type.name){
+                if(item.type.type.displayName===action.data.type.type.displayName){
                     flag = false;
                 }
             })
@@ -51,7 +51,7 @@ const AdminReduser = (state=initialState,action)=>{
         case DELETE_DISPLAY:{
             let newState = {...state};
             newState.displays.forEach((item,i)=>{
-                if(item.type.name===action.data){
+                if(item.type.type.displayName===action.data){
                     newState.displays.splice(i,1);
                 }
             })

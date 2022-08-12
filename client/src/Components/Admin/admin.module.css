@@ -20,26 +20,13 @@
 .item_content{
 
 }
-.left{
-    width: 65%;
-}
-.right{
-    width: 35%;
-}
 .user_box{
     width: 25vw;
+    overflow-x: hidden;
 }
 .material_box{
     width: 40vw;
 }
-.table_box{
-    width: 100%;
-}
-
-.table{
-    width:100%;
-}
-
 .granit_box, .beton_box, .magazin_box{
     width: 70vw;
 }
@@ -53,7 +40,7 @@
 .section_but_box{
     display: flex;
     flex-flow: row nowrap;
-    width: 100%;
+    width: 95%;
     height: 2rem;
 }
 .section_but_box div:first-child{
@@ -69,4 +56,11 @@
     background-color: orangered;
     border-radius: 50%;
     border-color: orangered;
+}
+.table_box{
+    padding: 10px;
+    width: 95%;
+}
+.table{
+    width:100%;
 }

@@ -1,24 +1,18 @@
 import React from 'react';
-import GranitDisplay from "./granit-display";
-import BetonDisplay from "./beton-display";
-import MagazinDisplay from "./magazin-display";
-import MaterialSection from "./material-section";
-import UserSection from "./user-section";
+
 import c from './../admin.module.css';
+import MaterialContainer from "./materialContainer";
+import GranitContainer from "./granitContainer";
+import BetonContainer from "./betonContainer";
+import MagazinContainer from "./magazinContainer";
+import UserContainer from "./userContainer";
 
 const ButtonBox = (props) => {
-    const granit = <GranitDisplay close={props.close}/>;
-    const beton = <BetonDisplay close={props.close}/>;
-    const magaz = <MagazinDisplay close={props.close}/>;
-    const material = <MaterialSection
-        state={props.state}
-        addRowMat={props.addRowMat}
-        changeField={props.changeField}
-        saveMat={props.saveMat}
-        selectEl={props.selectEl}
-        close={props.close}
-    />
-    const user = <UserSection  addUser={props.addUser} close={props.close}/>
+    const granit = <GranitContainer />;
+    const beton = <BetonContainer />;
+    const magaz = <MagazinContainer />;
+    const material = <MaterialContainer />
+    const user = <UserContainer  />
 
     return (
         <div className={c.admin_butt_wrap}>

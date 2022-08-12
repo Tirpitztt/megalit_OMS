@@ -8,10 +8,12 @@ const UserSection = (props) => {
             <div className={c.section_but_box}>
                 <div></div>
                 <div>
-                    <button className={c.button_close} onClick={()=>props.close('UserSection')}>X</button>
+                    <button className={c.button_close} onClick={()=>props.delDisp('Connect(UserContainer)')}>X</button>
                 </div>
             </div>
-            <AddUserForm addUser={props.addUser}/>
+            <div className={c.table_box}>
+                <AddUserForm addUser={props.addUser}/>
+            </div>
         </div>
     );
 };

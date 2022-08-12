@@ -1,16 +1,18 @@
 import React from 'react';
 import c from './../admin.module.css';
 
-const BetonDisplay = ({close}) => {
+const BetonDisplay = (props) => {
     return (
         <div className={c.beton_box}>
             <div className={c.section_but_box}>
                 <div></div>
                 <div>
-                    <button className={c.button_close} onClick={()=>close('BetonDisplay')}>X</button>
+                    <button className={c.button_close} onClick={()=>props.delDisp('Connect(BetonContainer)')}>X</button>
                 </div>
             </div>
-            beton
+            <div className={c.table_box}>
+                beton
+            </div>
         </div>
     );
 };

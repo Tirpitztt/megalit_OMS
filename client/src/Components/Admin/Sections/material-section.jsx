@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import MaterialTable from "./material-table";
 import c from './../admin.module.css';
 
@@ -6,7 +6,7 @@ const MaterialSection = (props) => {
     let matRow = 'no data';
     const point = (id,val,name)=>{
         let p = <td onDoubleClick={()=>doubleClick(id)}>{val}</td>
-        if(props.state.selectEl===id){
+        if(props.state.selectElement===id){
             p = <td><input onChange={(e)=>changeField(e,id,name)}
                            onBlur={()=>saveData(id,val,name)}
                            value={val}/></td>
@@ -22,6 +22,7 @@ const MaterialSection = (props) => {
        props.changeField(body);
     }
     const doubleClick = (id)=>{
+        console.log('id:',id);
         props.selectEl(id);
     }
     const saveData = (id,val,name)=>{
@@ -34,14 +35,6 @@ const MaterialSection = (props) => {
     }
     if(props.state.materials.length){
         matRow = props.state.materials.map((item,i)=>{
-            // return <tr><td key={i}>{item.id}</td>
-            //     <td><input value={item.name}
-            //                onChange={(e)=>changeField(e,item.id,'name')}
-            //                 onFocus={}/></td>
-            //     <td><input value={item.USD} onChange={(e)=>changeField(e,item.id,'USD')}/></td>
-            //     <td><input value={item.EUR} onChange={(e)=>changeField(e,item.id,'EUR')}/></td>
-            //     <td><input value={item.RUR} onChange={(e)=>changeField(e,item.id,'RUR')}/></td>
-            //     <td><input value={item.BLR} onChange={(e)=>changeField(e,item.id,'BLR')}/></td></tr>
             return <tr><td key={i}>{item.id}</td>
                         {point(item.id,item.name,'name')}
                         {point(item.id,item.USD,'USD')}
@@ -53,14 +46,15 @@ const MaterialSection = (props) => {
     return (
         <div className={c.material_box}>
             <div className={c.section_but_box}>
-                <div></div>
                 <div>
-                    <button className={c.button_close} onClick={()=>props.close('MaterialSection')}>X</button>
+                    <button onClick={props.addRowMat}>add row</button>
+                </div>
+                <div>
+                    <button className={c.button_close} onClick={()=>props.delDisp('Connect(MaterialContainer)')}>X</button>
                 </div>
             </div>
             <div className={c.table_box}>
                 <MaterialTable row={matRow} />
-                <button onClick={props.addRowMat}>add row</button>
             </div>
 
         </div>

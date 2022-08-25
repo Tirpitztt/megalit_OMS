@@ -46,10 +46,14 @@ const MaterialSection = (props) => {
     return (
         <div className={c.material_box}>
             <div className={c.section_but_box}>
-                <div>
-                    <button onClick={props.addRowMat}>add row</button>
+                <div className={c.button_section_wrap}>
+                    <button className={c.buttons_tool} onClick={props.addRowMat}>add row</button>
+                    <button className={c.buttons_tool}>button</button>
+                    <button className={c.buttons_tool}>button</button>
+                    <button className={c.buttons_tool}>button</button>
+                    <button className={c.buttons_tool}>button</button>
                 </div>
-                <div>
+                <div className={c.button_close_wrap}>
                     <button className={c.button_close} onClick={()=>props.delDisp('Connect(MaterialContainer)')}>X</button>
                 </div>
             </div>

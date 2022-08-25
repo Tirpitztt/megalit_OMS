@@ -6,8 +6,10 @@ const UserSection = (props) => {
     return (
         <div className={c.user_box}>
             <div className={c.section_but_box}>
-                <div></div>
-                <div>
+
+                    <p>Добавление нового пользователя</p>
+
+                <div className={c.button_close_wrap}>
                     <button className={c.button_close} onClick={()=>props.delDisp('Connect(UserContainer)')}>X</button>
                 </div>
             </div>

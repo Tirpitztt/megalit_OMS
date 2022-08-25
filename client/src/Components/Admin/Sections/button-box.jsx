@@ -16,11 +16,11 @@ const ButtonBox = (props) => {
 
     return (
         <div className={c.admin_butt_wrap}>
-            <button onClick={()=>props.dc(material)}>Материал</button>
-            <button onClick={()=>props.dc(granit)}>Гранит</button>
-            <button onClick={()=>props.dc(beton)}>Бетон</button>
-            <button onClick={()=>props.dc(magaz)}>Магазин</button>
-            <button onClick={()=>props.dc(user)}>Пользователи</button>
+            <button className={c.buttons_tool} onClick={()=>props.dc(material)}>Материал</button>
+            <button className={c.buttons_tool} onClick={()=>props.dc(granit)}>Гранит</button>
+            <button className={c.buttons_tool} onClick={()=>props.dc(beton)}>Бетон</button>
+            <button className={c.buttons_tool} onClick={()=>props.dc(magaz)}>Магазин</button>
+            <button className={c.buttons_tool} onClick={()=>props.dc(user)}>Пользователи</button>
         </div>
     );
 };

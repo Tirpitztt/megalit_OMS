@@ -32,7 +32,7 @@ const Navbar = (props)=>{
                 </div>
                 {adminButton}
             </div>
-            <p>v 2.1.1</p>
+            <p>v 2.1.2</p>
         </div>
     )
 }
